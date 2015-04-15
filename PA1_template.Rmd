@@ -29,7 +29,7 @@ temp <- activity %>%
         group_by(date) %>% 
         summarize(totalsteps = sum(steps, na.rm = TRUE))
 ```
-```{r plot, , fig.width=5, fig.height=4}
+```{r plot_totalsteps, , fig.width=5, fig.height=4}
 # Plot the histogram
 hist(temp$totalsteps, xlab = "Total Steps Per Day", ylab = "Number of Days", main = "Total Steps in a day", col = "red")
 ```
@@ -41,7 +41,7 @@ temp1 <- tapply(activity$steps, activity$date, sum, na.rm = TRUE);
 temp1 <- cbind.data.frame(date = names(temp1),totalsteps = unname(temp1))
 ```
 
-```{r plot, fig.width=5, fig.height=4}
+```{r plot_totalsteps2, fig.width=5, fig.height=4}
 # Plot the histogram
 hist(temp1$totalsteps, xlab = "Total Steps Per Day", ylab = "Number of Days", main = "Total Steps in a day", col = "blue")
 ```
@@ -66,11 +66,12 @@ Now, let's plot with *ggplot2* package.
 library(ggplot2)
 ```
 
-```{r, fig.width=6, fig.height=5}
+```{r plot_dailyactiv, fig.width=6, fig.height=5}
 g <- ggplot(temp2, aes(interval, avgsteps))
 g <- g + geom_line() + xlab("5-min Interval") + ylab("Average Num of Steps") + ggtitle("Average Daily Activity Pattern")
 print(g)
 ```
+
 Finding the 5-min interval with the maximum number of steps.
 ```{r}
 temp2$interval[which.max(temp2$avgsteps)]
@@ -108,7 +109,7 @@ sum(is.na(activityfull))
 ```
 
 A histogram of the total number of steps taken each day for *activefull* data.
-```{r, fig.width=6, fig.height=5}
+```{r plot_totalstepsfreq, fig.width=6, fig.height=5}
 temp3 <- tapply(activityfull$steps, activityfull$date, sum, na.rm = TRUE)
 temp3 <- cbind.data.frame(date = names(temp3),totalsteps = unname(temp3))
 
@@ -150,7 +151,7 @@ temp4 <- activity %>%
 ```
 
 Let's plot the result with *lattice* system.
-```{r, lattice, results='hide', message=FALSE, warning=FALSE}
+```{r plot_stepsweekdays, lattice, results='hide', message=FALSE, warning=FALSE}
 library(lattice)
 ```
 ```{r, fig.width=6, fig.height=5}

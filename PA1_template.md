@@ -54,7 +54,7 @@ temp <- activity %>%
 hist(temp$totalsteps, xlab = "Total Steps Per Day", ylab = "Number of Days", main = "Total Steps in a day", col = "red")
 ```
 
-![plot of chunk plot, ](figure/plot, -1.png) 
+![plot of chunk plot_totalsteps, ](figure/plot_totalsteps, -1.png) 
 
 Another approach is by using *tapply* function.
 
@@ -70,7 +70,7 @@ temp1 <- cbind.data.frame(date = names(temp1),totalsteps = unname(temp1))
 hist(temp1$totalsteps, xlab = "Total Steps Per Day", ylab = "Number of Days", main = "Total Steps in a day", col = "blue")
 ```
 
-![plot of chunk plot](figure/plot-1.png) 
+![plot of chunk plot_totalsteps2](figure/plot_totalsteps2-1.png) 
 
 Finally, he mean and median calculation.
 
@@ -113,7 +113,7 @@ g <- g + geom_line() + xlab("5-min Interval") + ylab("Average Num of Steps") + g
 print(g)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+![plot of chunk plot_dailyactiv](figure/plot_dailyactiv-1.png) 
 Finding the 5-min interval with the maximum number of steps.
 
 ```r
@@ -174,7 +174,7 @@ temp3 <- cbind.data.frame(date = names(temp3),totalsteps = unname(temp3))
 hist(temp3[,2], xlab = "Total Steps Per Day", ylab = "Number of Days", main = "Frequency of Total Steps in a day", col = "blue")
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![plot of chunk plot_totalstepsfreq](figure/plot_totalstepsfreq-1.png) 
 
 The *mean* and *median* for *activityfull* data.
 
@@ -242,4 +242,4 @@ xyplot(temp4$avgsteps ~ temp4$interval | temp4$weekdays,
        xlab = "Interval", ylab = "Number of steps")
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
+![plot of chunk unnamed-chunk-12](figure/unnamed-chunk-12-1.png) 
